@@ -10,10 +10,10 @@
 # NOTE: API key and API secret go in the twitter_consumer_key and twitter_consumer_secret vars.
 #
 
-twitter_consumer_key = ''
-twitter_consumer_secret = ''
-twitter_access_token = ''
-twitter_access_secret = ''
+twitter_consumer_key = 'dbSAIyGFIVmCQTckXSP0QpyHk'
+twitter_consumer_secret = '1KfzU1srmAgb1yzaNZFwfStFVczmQj1aIG8CoWwQFTrgjF9w4m'
+twitter_access_token = '810846719529385984-lzuk5LHjboOmEaaeJvopS2TaUtgs6zy'
+twitter_access_secret = 'KZYkYZdkbmLvUy3W2hM0PIbPrceyhlGXoBBd0n96h1YSH'
 
 # Personality Insights credentials and URL
 #
