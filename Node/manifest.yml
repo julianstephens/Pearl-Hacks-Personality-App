@@ -1,0 +1,9 @@
+---
+applications:
+- name: pearl-hacks
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - pi-service-demo-korean
