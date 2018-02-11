@@ -7,4 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class LoginComponent {
+	submitTwitter(handle) { 
+		console.log(handle); 
+	}
 }
