@@ -1,4 +1,4 @@
-import tweepy #https://github.com/tweepy/tweepy
+import tweepy
 import json
 import sys
 
@@ -38,17 +38,6 @@ def get_all_tweets(screen_name):
 
     return alltweets
 
-def fetch_tweets(screen_names):
-
-    # initialize the list to hold all tweets from all users
-    alltweets=[]
-
-    # get all tweets for each screen name
-    for  screen_name in screen_names:
-        alltweets.extend(get_all_tweets(screen_name))
-
-    return alltweets
-
 def store_tweets(alltweets,file='tweets.json'):
 
     # a list of all formatted tweets
@@ -58,25 +47,17 @@ def store_tweets(alltweets,file='tweets.json'):
 
         tweet_information=dict()
 
-        tweet_information['text']=tweet.text.encode('utf-8')
+        tweet_information['content']=tweet.text
 
-        # date and time at which tweet was created
-        tweet_information['created_at']=tweet.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        tweet_information['contenttype']="text/plain"
 
-        # id of this tweet
-        tweet_information['id_str']=tweet.id_str
-
-        # add this tweet to the tweet_list
         tweet_list.append(tweet_information)
 
 
-    # open file desc to output file with write permissions
     file_des=open(file,'w')
 
-    # dump tweets to the file
     json.dump(tweet_list,file_des,indent=4,sort_keys=True)
 
-    # close the file_des
     file_des.close()
 
 
