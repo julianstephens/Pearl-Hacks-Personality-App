@@ -11,7 +11,7 @@ var params = {
     screen_name: 'realDonaldTrump',
     count: 3200,
     lang: 'en'
-}
+};
 
 
 for (var i = 1; i <= 16; i++) {
@@ -50,28 +50,26 @@ for (var i = 1; i <= 16; i++) {
 
 
 
+var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 
+var personalityInsights = new PersonalityInsightsV3({
+  username: 'a1e78119-98e6-4c30-a6f2-8529024c5e72',
+  password: 'cdX0Oz3yUD3C',
+  version_date: '2018-2-10',
+  url: 'https://gateway.watsonplatform.net/personality-insights/api'
+});
 
-// var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+var personalityParams = {
+    content: require('./watson.json'),
+    content_type: 'application/json',
+    consumption_preferences: true
+};
 
-// var personalityInsights = new PersonalityInsightsV3({
-//   username: 'a1e78119-98e6-4c30-a6f2-8529024c5e72',
-//   password: 'cdX0Oz3yUD3C',
-//   version_date: '2018-2-10',
-//   url: 'https://gateway.watsonplatform.net/personality-insights/api'
-// });
-
-// personalityInsights.profile(
-//   {
-//     content: data,
-//     content_type: 'text/plain',
-//     consumption_preferences: true
-//   },
-//   function(err, response) {
-//     if (err) {
-//       console.log('error:', err);
-//     } else {
-//       return JSON.stringify(response, null, 2);
-//     }
-//   }
-// );
+personalityInsights.profile(personalityParams, function(err, response) {
+    if (err) {
+      console.log('error:', err);
+    } else {
+      console.log(JSON.stringify(response, null, 2));
+    }
+  }
+);
