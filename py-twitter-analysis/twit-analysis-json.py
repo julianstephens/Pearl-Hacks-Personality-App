@@ -33,14 +33,9 @@ def get_all_tweets(screen_name):
 
         oldest = alltweets[-1].id - 1
 
-    # print total tweets fetched from given screen name
-    print ("Total tweets downloaded from %s are %s" % (screen_name,len(alltweets)))
-
     return alltweets
 
 def store_tweets(alltweets,file='tweets.json'):
-
-    # a list of all formatted tweets
     tweet_list=[]
 
     for tweet in alltweets:
@@ -53,21 +48,35 @@ def store_tweets(alltweets,file='tweets.json'):
 
         tweet_list.append(tweet_information)
 
+    tweet_data=dict()
+    tweet_data["contentItems"] = tweet_list
 
     file_des=open(file,'w')
 
-    json.dump(tweet_list,file_des,indent=4,sort_keys=True)
+    json.dump(tweet_data,file_des,indent=4,sort_keys=True)
 
     file_des.close()
 
 
 if __name__ == '__main__':
-
-    # pass in the username of the account you want to download
     alltweets=get_all_tweets(sys.argv[1])
 
-    # store the data into json file
     if len(sys.argv[2])>0:
         store_tweets(alltweets,sys.argv[2])
     else :
         store_tweets(alltweets)
+
+
+
+personality_insights = PersonalityInsightsV3(
+  version='2017-10-13',
+  username='a1e78119-98e6-4c30-a6f2-8529024c5e72',
+  password='cdX0Oz3yUD3C'
+)
+
+with open(join(dirname(__file__), './watson.json')) as profile_json:
+  profile = personality_insights.profile(
+    profile_json.read(), content_type='application/json',
+    raw_scores=True, consumption_preferences=True)
+
+print(json.dumps(profile, indent=2))
