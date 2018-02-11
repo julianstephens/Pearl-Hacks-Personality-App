@@ -1,6 +1,7 @@
 import tweepy
 import csv
 import cgi
+import json
 
 
 formData = cgi.FieldStorage()
@@ -28,7 +29,7 @@ def get_all_tweets(screen_name):
     oldest = alltweets[-1].id - 1
 
     while len(new_tweets) > 0:
-        print "getting tweets before %s" % (oldest)
+        print ("getting tweets before %s" % (oldest))
 
         new_tweets = api.user_timeline(screen_name = screen_name,count=200,max_id=oldest)
 
@@ -39,7 +40,7 @@ def get_all_tweets(screen_name):
 
     outtweets = [[tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in alltweets]
 
-    with open('%s_tweets.csv' % screen_name, 'wb') as f:
+    with open('watson.csv' % screen_name, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(["id","created_at","text"])
         writer.writerows(outtweets)
@@ -48,4 +49,16 @@ def get_all_tweets(screen_name):
 
 
 if __name__ == '__main__':
-    get_all_tweets(handle)
+  csvFile = get_all_tweets("realDonaldTrump")
+
+open(csvFile, 'r')
+jsonFile = open('watson.json', 'w')
+
+
+# personality_insights = PersonalityInsightsV3(
+#   version='2017-10-13',
+#   username='a1e78119-98e6-4c30-a6f2-8529024c5e72',
+#   password='cdX0Oz3yUD3C'
+# )
+
+# profile(content, )
