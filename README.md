@@ -1,4 +1,5 @@
 # PearlHacksPersonalityApp
+# Final product located at /py-twitter-analysis/twit-anaylsis-json.py
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
