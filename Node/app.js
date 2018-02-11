@@ -2,7 +2,7 @@ var Twitter = require('twitter'); //twitter package
 var config = require('./config.js');
 
 var tweetData = {};
-var key = 'contentItems';
+var key = "contentItems";
 tweetData[key] = [];
 
 var T = new Twitter(config);
@@ -12,7 +12,6 @@ var params = {
     count: 3200,
     lang: 'en'
 };
-
 
 for (var i = 1; i <= 16; i++) {
     params.page = i;
@@ -36,16 +35,24 @@ for (var i = 1; i <= 16; i++) {
                     tempData.content = tweet.retweeted_status.text;
                     //tempData.id = tweet.retweeted_status.id;
                 }
+
                 tweetData[key].push(tempData);
             });
         } else {
             return err;
         }
 
-        //console.log(tweetData);
+       // console.log(tweetData);
 
     }); //get
-}  //for loop
+}
+  //for loop
+
+// var fs = require('fs');
+// fs.writeFile('watson.json', JSON.stringify(tweetData), 'utf8', function (err){
+//     if (err) throw err;
+// });
+
 
 
 
@@ -60,7 +67,8 @@ var personalityInsights = new PersonalityInsightsV3({
 });
 
 var personalityParams = {
-    content: require('./watson.json'),
+    content: tweetData,
+
     content_type: 'application/json',
     consumption_preferences: true
 };

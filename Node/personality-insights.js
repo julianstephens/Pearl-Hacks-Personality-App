@@ -1,3 +1,17 @@
+
+
+function getHandle(handle){
+
+}
+
+
+
+
+
+
+
+
+
 var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 
 var personalityInsights = new PersonalityInsightsV3({
@@ -6,16 +20,6 @@ var personalityInsights = new PersonalityInsightsV3({
   version_date: '2018-2-10',
   url: 'https://gateway.watsonplatform.net/personality-insights/api'
 });
-
-var Twitter = require('twitter');
-var client = new Twitter({
-  consumer_key: 'dbSAIyGFIVmCQTckXSP0QpyHk',
-  consumer_secret: '1KfzU1srmAgb1yzaNZFwfStFVczmQj1aIG8CoWwQFTrgjF9w4m',
-  access_token_key: '810846719529385984-lzuk5LHjboOmEaaeJvopS2TaUtgs6zy',
-  access_token_secret: 'KZYkYZdkbmLvUy3W2hM0PIbPrceyhlGXoBBd0n96h1YSH'
-});
-
-client.get(path, params, callback);
 
 personalityInsights.profile(
   {

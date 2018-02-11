@@ -1,0 +1,54 @@
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-color: none;
+}
+
+input {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none !important;
+}
+
+body{
+    background: url('./pexels-photo-515169.jpeg') no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+}
+
+#hero{
+    background-color: #DB4935;
+}
+
+#search-bar {
+    position: absolute;
+    top: 60%;
+    right: 0;
+    left: 22%;
+    font-size: 120%;
+    width: 55%;
+}
+
+#submit{
+
+}
