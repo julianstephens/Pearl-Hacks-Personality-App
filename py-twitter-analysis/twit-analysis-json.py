@@ -1,6 +1,10 @@
+from __future__ import print_function
 import tweepy
 import json
 import sys
+from watson_developer_cloud import PersonalityInsightsV3
+from os.path import join, dirname
+
 
 #Twitter API credentials
 consumer_key = "dbSAIyGFIVmCQTckXSP0QpyHk"
@@ -79,4 +83,6 @@ with open(join(dirname(__file__), './watson.json')) as profile_json:
     profile_json.read(), content_type='application/json',
     raw_scores=True, consumption_preferences=True)
 
-print(json.dumps(profile, indent=2))
+file_des=open('./profile.json','w')
+json.dump(profile, file_des, indent=2)
+file_des.close()
