@@ -4,8 +4,8 @@ import cgi
 import json
 
 
-formData = cgi.FieldStorage()
-handle = formData.getValue('twitterHandle')
+# formData = cgi.FieldStorage()
+# handle = formData.getValue('twitterHandle')
 
 #Twitter API credentials
 consumer_key = "dbSAIyGFIVmCQTckXSP0QpyHk"
@@ -40,7 +40,7 @@ def get_all_tweets(screen_name):
 
     outtweets = [[tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in alltweets]
 
-    with open('watson.csv' % screen_name, 'w') as f:
+    with open('watson.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerow(["id","created_at","text"])
         writer.writerows(outtweets)
@@ -49,10 +49,10 @@ def get_all_tweets(screen_name):
 
 
 if __name__ == '__main__':
-  csvFile = get_all_tweets("realDonaldTrump")
+  get_all_tweets("realDonaldTrump")
 
-open(csvFile, 'r')
-jsonFile = open('watson.json', 'w')
+# open(csvFile, 'r')
+# jsonFile = open('watson.json', 'w')
 
 
 # personality_insights = PersonalityInsightsV3(
